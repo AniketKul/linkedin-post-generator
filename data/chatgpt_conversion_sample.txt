@@ -1,0 +1,26 @@
+Please find a test.json file attached here. I want you to read it and then use "post_text" and "hashtags" fields to convert to a json file as per example shown below -
+
+Example Text:
+
+Software Engineering isn't easy. 
+It requires thorough understanding of basic concepts.
+
+Output Text:
+
+{
+    "text": "Software Engineering isn't easy.\nIt requires thorough understanding of basic concepts.",
+    "engagement": 0,
+}
+
+Now please convert this text -
+
+"post_text": "If someone asked me to visualize what 2024 looked like for Sequent - this image says it all! For the second time this year, I'm trying to finish a project that is larger than anything I've ever undertaken (this time a book), and it would have been *so lovely* to have read this wonderful piece by Dave Stewart BEFORE I started. He published this back in 2022, and it resurfaced here on LinkedIn late last week, in a post by Allie Miller. You can check it out yourself at https://lnkd.in/enAsDTJg
+
+"hashtags": [
+    "#systemdesign",
+    "#development",
+    "#weekend",
+    "#learningeveryday"
+]
+
+Please give me the final json file to download at the end.
