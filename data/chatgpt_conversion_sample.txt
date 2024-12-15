@@ -1,4 +1,4 @@
-Please find a test.json file attached here. I want you to read it and then use "post_text" and "hashtags" fields to convert to a json file as per example shown below -
+Please find a Linkedin posts.json file attached here. I want you to read it and then use "post_text" and "hashtags" fields to convert to a json file as per example shown below -
 
 Example Text:
 
