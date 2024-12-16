@@ -16,14 +16,14 @@ def process_posts(raw_file_path, processed_file_path=None):
     for epost in enriched_posts:
         print(epost)
     
-    # unified_tags = get_unified_tags(enriched_posts)
-    # for post in enriched_posts:
-    #     current_tags = post['tags']
-    #     new_tags = {unified_tags[tag] for tag in current_tags}
-    #     post['tags'] = list(new_tags)
+    unified_tags = get_unified_tags(enriched_posts)
+    for post in enriched_posts:
+        current_tags = post['tags']
+        new_tags = {unified_tags[tag] for tag in current_tags}
+        post['tags'] = list(new_tags)
 
-    # with open(processed_file_path, encoding='utf-8', mode="w") as outfile:
-    #     json.dump(enriched_posts, outfile, indent=4)
+    with open(processed_file_path, encoding='utf-8', mode="w") as outfile:
+        json.dump(enriched_posts, outfile, indent=4)
 
 
 def extract_metadata(post):
@@ -40,6 +40,9 @@ def extract_metadata(post):
 
     pt = PromptTemplate.from_template(template)
     chain = pt | llm
+    # Python's utf-8 encoder does not support surrogate code points (like \ud83e) in a string.
+    # Ignoring those surrogate code points
+    post = post.encode('utf-8', 'ignore').decode('utf-8')
     response = chain.invoke(input={"post": post})
 
     try:
